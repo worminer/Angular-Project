@@ -13,6 +13,7 @@ module.exports = {
       author: article.author,
       year: article.year,
       image: article.image,
+      text: article.text,
       createdOn: new Date(),
       createdBy: article.createdBy,
       likes: [],

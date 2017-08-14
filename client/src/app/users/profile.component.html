@@ -2,5 +2,5 @@
 
 <div>
   <div *ngFor="let article of articles">
-    {{article.make}}{{article.model}} <button (click)="delete(article.id)">Delete</button>
+    Article name: {{article.name}} Author name{{article.model}} <button (click)="delete(article.id)">Delete</button>
 </div>

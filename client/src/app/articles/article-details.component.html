@@ -7,7 +7,7 @@
   <h2> Author name: {{article.author}} </h2>
   <h3> {{article.likes}} Likes </h3>
   <img  *ngIf="article.image" [src]="article.image" />
-  <h3> Article text: {{article.text}} </h3>
+  <span> Article text: {{article.details}} </span>
 </div>
 <div>
   <form #reviewForm="ngForm" (submit)="submitReview()">

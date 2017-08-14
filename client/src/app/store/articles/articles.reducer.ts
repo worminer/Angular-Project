@@ -1,7 +1,7 @@
 import { initialState } from './articles.state';
 
-import { 
-  ADD_ARTICLE, 
+import {
+  ADD_ARTICLE,
   ALL_ARTICLES,
   MINE_ARTICLES,
   ARTICLE_DETAILS,
@@ -9,7 +9,7 @@ import {
   ARTICLE_LIKE,
   ARTICLE_ALL_REVIEWS,
   ARTICLE_ADD_REVIEW
-} from './articles.actions'
+} from './articles.actions';
 
 function addArticle(state, action) {
   const result = action.result;
@@ -31,6 +31,7 @@ function mineArticles(state, action) {
 }
 
 function articleDetails(state, action) {
+  console.log(action);
   return Object.assign({}, state, {
     articleDetails: action.article
   });
@@ -44,7 +45,7 @@ function articleLike(state, action) {
 
       return Object.assign({}, state, {
         articleDetails
-    })
+    });
   }
   return state;
 }
@@ -72,13 +73,13 @@ function articleDelete(state, action) {
   if (result.success) {
     const id = action.id;
     const articleIndex = state.myArticles.findIndex(c => c.id === id);
-  
+
     if (articleIndex >= 0) {
       const myArticles = state.myArticles.slice(0);
-      myArticles.slice(0).splice(articleIndex, 1)
+      myArticles.slice(0).splice(articleIndex, 1);
       return Object.assign({}, state, {
         myArticles
-      })
+      });
     }
   }
   return state;
@@ -92,10 +93,10 @@ export function articlesReducer (state = initialState, action) {
     case ALL_ARTICLES:
       return allArticles(state, action);
     case MINE_ARTICLES:
-      return mineArticles(state,action);
+      return mineArticles(state, action);
     case ARTICLE_DETAILS:
       return articleDetails(state, action);
-      case ARTICLE_DELETE:
+    case ARTICLE_DELETE:
       return articleDelete(state, action);
     case ARTICLE_LIKE:
       return articleLike(state, action);

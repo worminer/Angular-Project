@@ -1,10 +1,10 @@
 export interface IArticlesState {
-  articleAdded: boolean,
-  articleAddedId: number,
-  allArticles: Array<object>,
-  articleDetails: object,
-  articleReviews: Array<object>,
-  myArticles: Array<object>
+  articleAdded: boolean;
+  articleAddedId: number;
+  allArticles: Array<object>;
+  articleDetails: object;
+  articleReviews: Array<object>;
+  myArticles: Array<object>;
 }
 
 export const initialState: IArticlesState = {
@@ -14,4 +14,4 @@ export const initialState: IArticlesState = {
   articleDetails: {},
   articleReviews: [],
   myArticles: []
-}
+};

@@ -9,8 +9,9 @@ import { ArticlesActions } from '../store/articles/articles.actions';
 import { ArticleReviewModel } from './article-review.model';
 
 @Component({
-  selector: 'article-details',
-  templateUrl: './article-details.component.html'
+  selector: 'app-article-details',
+  templateUrl: './article-details.component.html',
+  styleUrls: ['article-details.component.css']
 })
 export class ArticleDetailsComponent implements OnInit {
   private articleId: number;
@@ -26,7 +27,7 @@ export class ArticleDetailsComponent implements OnInit {
     this.route.params
       .subscribe(params => {
         const id = params['id'];
-        
+
         this.articlesActions.details(id);
         this.articlesActions.allReviews(id);
         this.ngRedux
@@ -37,7 +38,7 @@ export class ArticleDetailsComponent implements OnInit {
           });
       });
   }
-  
+
   like () {
     this.articlesActions.like(this.article['id']);
   }

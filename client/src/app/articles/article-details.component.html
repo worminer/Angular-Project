@@ -1,45 +1,66 @@
-<h1>
-  Article Details
-  <button (click)="like()">Like this Article!</button>
-</h1>
-<div class="image-details">
-  <h1> Article name: {{article.name}} </h1>
-  <h2> Author name: {{article.author}} </h2>
-  <h3> {{article.likes}} Likes </h3>
-  <img  *ngIf="article.image" [src]="article.image" />
-  <span> Article text: {{article.details}} </span>
-</div>
-<div>
-  <form #reviewForm="ngForm" (submit)="submitReview()">
-    <div class="form-group">
-      <label for="rating">Rating</label>
-      <select
-        class="form-control"
-        id="rating"
-        name="rating"
-        [(ngModel)]="review.rating">
-        <option *ngFor="let number of [1,2,3,4,5]" [value]="number">{{number}}</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="comment">Comment</label>
-      <textarea
-        class="form-control"
-        id="comment"
-        name="comment"
-        [(ngModel)]="review.comment">
-      </textarea>
-    </div>
-      <button
-        type="submit"
-        class="btn btwn-success"
-        [disabled]="!reviewForm.form.valid">
-        Submit
-      </button>
-  </form>
-</div>
-  <div>
-    <div *ngFor="let review of reviews">
-      {{review.rating}} <span *ngIf="review.comment"> - {{review.comment}}</span>
+<div class="col-md-12">
+  <div class="panel panel-default">
+    <div class="panel-heading text-center"><h3>{{article.name}}</h3></div>
+    <div class="panel-body">
+      <div class="article-container">
+        <div *ngIf="article.image" class="image-container">
+          <img [src]="article.image"  class='article-image'/>
+        </div>
+        <div class="article-details">
+          <div class="well">
+            {{article.details}}
+          </div>
+          <span>
+            {{article.likes}} Likes
+            <button (click)="like()" class="btn btn-success btn-sm">Like this Article!</button>
+          </span>
+          <span class="pull-right">Written by: {{article.author}} </span>
+        </div>
+      </div>
+      <div class="col-md-12 well">
+        <div class="col-md-6 col-md-offset-3" >
+          <form #reviewForm="ngForm" (submit)="submitReview()">
+            <div class="form-group">
+              <label for="rating">Rating</label>
+              <select
+                  class="form-control"
+                  id="rating"
+                  name="rating"
+                  [(ngModel)]="review.rating">
+                <option *ngFor="let number of [1,2,3,4,5]" [value]="number">{{number}}</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="comment">Comment</label>
+              <textarea
+                  class="form-control"
+                  id="comment"
+                  name="comment"
+                  [(ngModel)]="review.comment">
+            </textarea>
+            </div>
+            <button
+                type="submit"
+                class="btn btn-success"
+                [disabled]="!reviewForm.form.valid">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+      <div>
+        <hr>
+      </div>
+      <div class="col-md-12">
+        <div *ngFor="let review of reviews" class="well">
+          User {{review.user}} give {{review.rating}} Stars.
+          
+          <p *ngIf="review.comment">
+            Comment: {{review.comment}}
+          </p>
+        </div>
+      </div>
     </div>
   </div>
+</div>
+

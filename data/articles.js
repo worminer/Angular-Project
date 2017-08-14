@@ -14,7 +14,6 @@ module.exports = {
       details: article.details,
       year: article.year,
       image: article.image,
-      text: article.text,
       createdOn: new Date(),
       createdBy: article.createdBy,
       likes: [],

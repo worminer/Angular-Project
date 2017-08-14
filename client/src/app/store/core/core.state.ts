@@ -1,7 +1,15 @@
+export interface IMessage {
+  name?: string;
+  message?: string;
+  displayed?: boolean;
+}
+
 export interface ICoreState {
-  message: string
-};
+  message: string;
+  errors: IMessage[];
+}
 
 export const initialState: ICoreState = {
-  message: null
+  message: null,
+  errors: []
 };

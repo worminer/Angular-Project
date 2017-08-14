@@ -1,31 +1,43 @@
-import { initialState } from './core.state';
+import {IMessage, initialState} from './core.state';
 import { ROUTES_CHANGE} from './core.actions';
 
-function handleMessage(state, action) {
+function handleMessage (state, action) {
   const result = action.result;
   if (result) {
-    let message = result.message;
+    const message = result.message;
     const errors = result.errors;
+    let newState = Object.assign({}, state);
+
     if (errors) {
-      const keys = Object.keys(errors);
-      if (keys.length > 0) {
-        const firstKey = Object.keys(errors)[0];
-        message = errors[firstKey];
+      const currentErrors: IMessage[] = [];
+      for (const key of Object.keys(errors)) {
+        currentErrors.push({
+          name: key,
+          message: errors[key],
+          displayed: false
+        });
       }
-    }
-    
-    if (message) {
-      return Object.assign({}, state, {
-        message
+
+      newState = Object.assign(newState, {
+        errors: currentErrors
       });
     }
-  } 
+
+    if (message) {
+      newState = Object.assign(newState, {
+        message: message
+      });
+    }
+    return newState;
+  }
   return state;
+
 }
 
 function routeChange(state, action) {
   return Object.assign({}, state, {
-    message: null
+    message: null,
+    errors : []
   });
 }
 

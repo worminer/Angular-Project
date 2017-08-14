@@ -1,15 +1,15 @@
 const express = require('express')
-const carsData = require('../data/cars')
+const articlesData = require('../data/articles')
 const usersData = require('../data/users')
 
 const router = new express.Router()
 
 router.get('/', (req, res) => {
-  const cars = carsData.total()
+  const articles = articlesData.total()
   const users = usersData.total()
 
   res.status(200).json({
-    cars,
+    articles,
     users
   })
 })

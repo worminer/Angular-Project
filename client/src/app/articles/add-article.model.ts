@@ -1,11 +1,8 @@
 export class AddArticleModel {
   constructor (
-    public make?: string,
-    public model?: string,
+    public name?: string,
+    public author?: string,
     public year?: number,
-    public engine?: string,
-    public price?: number,
-    public image?: string,
-    public mileage?: number
+    public image?: string
   ) { }
 }

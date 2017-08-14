@@ -5,7 +5,7 @@ const passport = require('passport')
 const localSignupStrategy = require('./passport/local-signup')
 const localLoginStrategy = require('./passport/local-login')
 const authRoutes = require('./routes/auth')
-const carsRoutes = require('./routes/cars')
+const articlesRoutes = require('./routes/articles')
 const statsRoutes = require('./routes/stats')
 
 const app = express()
@@ -22,7 +22,7 @@ passport.use('local-login', localLoginStrategy)
 
 // routes
 app.use('/auth', authRoutes)
-app.use('/cars', carsRoutes)
+app.use('/articles', articlesRoutes)
 app.use('/stats', statsRoutes)
 
 app.listen(port, () => {

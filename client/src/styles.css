@@ -5,3 +5,6 @@
 .article-container div {
   margin-bottom: 50px;
 }
+.image-details img{
+  width: 250px;
+}

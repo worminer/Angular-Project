@@ -11,6 +11,7 @@ module.exports = {
       id,
       name: article.name,
       author: article.author,
+      details: article.details,
       year: article.year,
       image: article.image,
       text: article.text,

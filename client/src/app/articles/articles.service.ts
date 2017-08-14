@@ -13,7 +13,7 @@ export class ArticlesService {
   allArticles (page = 1, search = null) {
     let url = `articles/all?page=${page}`;
     if (search) {
-      url +=`&search=${search}`;
+      url += `&search=${search}`;
     }
     return this.httpService.get(url);
   }

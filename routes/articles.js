@@ -96,6 +96,7 @@ router.get('/details/:id', authCheck, (req, res) => {
     id,
     name: article.name,
     author: article.author,
+    details: article.details,
     year: article.year,
     image: article.image,
     createdOn: article.createdOn,
